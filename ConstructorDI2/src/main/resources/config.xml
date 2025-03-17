@@ -4,5 +4,36 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	                    http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean></bean>
+    <bean id="t1" class="kr.hs.study.beans.TestBean">
+        <constructor-arg value="kim"/>
+    </bean>
+
+    <bean id="t2" class="kr.hs.study.beans.TestBean">
+<!--        <constructor-arg value="5" type="int"/>-->
+<!--        <constructor-arg value="5.5" type="double"/>-->
+<!--        <constructor-arg value="lee" type="String"/>-->
+<!--        type을 지정해서 우선순위 정하기 *꼭 써주기*-->
+
+        <constructor-arg value="5" index="0"/>
+        <constructor-arg value="5.5" index="1"/>
+        <constructor-arg value="lee" index="2"/>
+<!--        타입이 같을 경우 인덱스로 우선순위 지정해주기.-->
+<!--        생성자의 멤버변수 순서가 달라도 스프링에서는 인덱스 덕분에 잘 돌아간다. 단 자바에서는 x-->
+    </bean>
+
+    <bean id="t3" class="kr.hs.study.beans.TestBean2">
+<!--        <constructor-arg>-->
+<!--&lt;!&ndash;            DataBean의 객체 만듦. 하지만 클래스 이름이 없음. 주솟값을 넘김,&ndash;&gt;-->
+<!--            <bean class="kr.hs.study.beans.DataBean2"/>-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg>-->
+<!--            <bean class="kr.hs.study.beans.DataBean2"/>-->
+<!--        </constructor-arg>-->
+        <constructor-arg ref="d1"/>
+        <constructor-arg ref="d1"/>
+    </bean>
+    <!--        - - - - - - - - - - - - - - - - -->
+    <bean id="d1" class="kr.hs.study.beans.DataBean2"/>
+
+
 </beans>
