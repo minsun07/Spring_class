@@ -4,10 +4,21 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	                    http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--    객체!!-->
     <bean id="t1" class="kr.hs.study.beans.TestBean">
         <property name="data1" value="1"/>
         <property name="data2" value="1.1"/>
         <property name="data3" value="true"/>
         <property name="data4" value="kim"/>
     </bean>
+
+    <!--    객체!!-->
+    <bean id="d1" class="kr.hs.study.beans.DataBean2"/>
+
+    <!--    객체!!-->
+    <bean id="t2" class="kr.hs.study.beans.TestBean2">
+        <property name="data1" ref="d1"/>
+        <property name="data2" ref="d1"/>
+    </bean>
+
 </beans>
